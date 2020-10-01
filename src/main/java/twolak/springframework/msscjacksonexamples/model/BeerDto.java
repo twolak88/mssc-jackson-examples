@@ -1,5 +1,6 @@
 package twolak.springframework.msscjacksonexamples.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -35,8 +36,12 @@ public class BeerDto {
     @Positive
     private Long upc;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private BigDecimal price;
+    
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", shape = JsonFormat.Shape.STRING)
     private OffsetDateTime createdDate;
+    @JsonFormat(pattern = "yyyy-dd-MM'T'HH:mm", shape = JsonFormat.Shape.STRING)
     private OffsetDateTime lastUpdatedDate;
     
 }
