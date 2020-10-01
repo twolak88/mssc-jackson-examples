@@ -1,5 +1,6 @@
 package twolak.springframework.msscjacksonexamples.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.UUID;
@@ -21,6 +22,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class BeerDto {
     
+    @JsonProperty(value = "beerID")
     @Null
     private UUID id;
 
