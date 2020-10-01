@@ -1,6 +1,7 @@
 package twolak.springframework.msscjacksonexamples.model;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
@@ -19,6 +20,7 @@ public class BaseTest {
                 .price(BigDecimal.valueOf(5.32))
                 .createdDate(OffsetDateTime.now())
                 .lastUpdatedDate(OffsetDateTime.now())
+                .localDate(LocalDate.now())
                 .build();
     }
 }
