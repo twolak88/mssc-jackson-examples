@@ -2,6 +2,7 @@ package twolak.springframework.msscjacksonexamples.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -41,11 +42,12 @@ public class BeerDto {
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private BigDecimal price;
     
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", shape = JsonFormat.Shape.STRING)
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ", shape = JsonFormat.Shape.STRING)
     private OffsetDateTime createdDate;
-    @JsonFormat(pattern = "yyyy-dd-MM'T'HH:mm", shape = JsonFormat.Shape.STRING)
+    @JsonFormat(pattern = "yyyy-dd-MM'T'HH:mm:ssZ", shape = JsonFormat.Shape.STRING)
     private OffsetDateTime lastUpdatedDate;
     
     @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate localDate;
 }
